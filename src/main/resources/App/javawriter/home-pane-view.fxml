@@ -12,7 +12,7 @@
         <HBox spacing="10">
             <Button fx:id="changeToUppercase" text="Upper" onAction="#handletoUpperCase"/>
             <Button fx:id="changeToLowercase" text="Lower" onAction="#handleToLowerCase"/>
-            <Button fx:id="save" text="Lower" onAction="#handleSave"/>
+            <Button fx:id="changeToSaveScene" text="Save" onAction="#handleToSaveScene"/>
             <ColorPicker fx:id="colorPicker" onAction="#handleColorPicker"/>
 
 

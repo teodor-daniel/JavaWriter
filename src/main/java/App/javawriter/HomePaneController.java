@@ -3,9 +3,15 @@ package App.javawriter;
 import Logic.ColorPickerLogic;
 import Logic.TextAreaLogic;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class HomePaneController {
     private ColorPickerLogic colorPickerLogic = new ColorPickerLogic();
@@ -23,7 +29,7 @@ public class HomePaneController {
     @FXML
     public ColorPicker colorPicker;
     @FXML
-    public Button save;
+    public Button changeToSaveScene;
 
     public void updateCounters() {
         textArea.textProperty().addListener((event) -> {
@@ -55,8 +61,24 @@ public class HomePaneController {
     }
 
 
-    public void handleSave(ActionEvent actionEvent) {
-     //to do pop new scene input the name, save the file in a directory called saves,
+    public void handleToSaveScene(ActionEvent actionEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("save-scene-view.fxml"));
+            Parent root = fxmlLoader.load();
+            SavePaneController savePaneController = fxmlLoader.getController();
+
+            Stage newStage = new Stage();
+
+            savePaneController.setTextAreaBuffer(textArea.getText());
+
+            newStage.setTitle("Save");
+
+            newStage.setScene(new Scene(root, 400, 300));
+
+            newStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

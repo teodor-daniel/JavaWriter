@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HomePaneController {
+public class HomePaneController{
     private ColorPickerLogic colorPickerLogic = new ColorPickerLogic();
     private TextAreaLogic textAreaLogic = new TextAreaLogic();
     @FXML

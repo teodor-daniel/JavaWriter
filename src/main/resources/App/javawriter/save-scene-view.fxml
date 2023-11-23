@@ -22,7 +22,7 @@
 
     </center>
     <bottom>
-        <Button fx:id="closeScene" text="Back" onMouseClicked="#handleCloseSave"/>
+        <Button fx:id="closeScene" text="Back" onMouseClicked="#handleCloseWindow"/>
     </bottom>
 
 </BorderPane>

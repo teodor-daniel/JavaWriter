@@ -12,7 +12,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("home-pane-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 400, 600);
-        stage.setTitle("Ce imi place java");
+        stage.setTitle("JavaWriter");
         stage.setScene(scene);
         stage.show();
     }

@@ -22,7 +22,7 @@
 
     <center>
         <HBox spacing="10">
-            <TextArea fx:id="textArea" onKeyTyped="#updateCounters"/>
+            <TextArea   fx:id="textArea" onKeyTyped="#updateCounters"/>
         </HBox>
     </center>
 

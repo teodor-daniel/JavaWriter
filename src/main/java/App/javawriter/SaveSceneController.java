@@ -11,7 +11,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 
-public class SavePaneController implements Closable {
+public class SaveSceneController implements Closable {
 
     @FXML
     public Button closeScene;
@@ -21,7 +21,8 @@ public class SavePaneController implements Closable {
     public TextField textFieldFileName;
     private String textAreaBuffer;
 
-    private  SaveLogic saveLogic = new SaveLogic();
+    private SaveLogic saveLogic = new SaveLogic();
+
     public String getTextAreaBuffer() {
         return textAreaBuffer;
     }
@@ -31,14 +32,18 @@ public class SavePaneController implements Closable {
     }
 
     @FXML
-    public void handleCloseWindow(MouseEvent actionEvent) {
-        final Node source = (Node) actionEvent.getSource();
+    public void handleCloseWindow(MouseEvent mouseEvent) {
+        final Node source = (Node) mouseEvent.getSource();
         final Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
 
     }
 
-    public void handleSaveText(ActionEvent actionEvent)  {
-       this.saveLogic.createFile(this.textAreaBuffer,this.textFieldFileName.getText());
+    public void handleSaveText(ActionEvent actionEvent) {
+        this.saveLogic.createFile(this.textAreaBuffer, this.textFieldFileName.getText());
+        final Node source = (Node) actionEvent.getSource();
+        final Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+
     }
 }

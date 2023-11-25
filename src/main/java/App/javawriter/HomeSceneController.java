@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HomePaneController{
+public class HomeSceneController {
     private ColorPickerLogic colorPickerLogic = new ColorPickerLogic();
     private TextAreaLogic textAreaLogic = new TextAreaLogic();
     @FXML
@@ -30,6 +30,9 @@ public class HomePaneController{
     public ColorPicker colorPicker;
     @FXML
     public Button changeToSaveScene;
+    @FXML
+    public Button changeToLoadScene;
+
 
     public void updateCounters() {
         textArea.textProperty().addListener((event) -> {
@@ -62,19 +65,32 @@ public class HomePaneController{
 
 
     public void handleToSaveScene(ActionEvent actionEvent) {
+        //to do create scene hanlder class.
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("save-scene-view.fxml"));
             Parent root = fxmlLoader.load();
-            SavePaneController savePaneController = fxmlLoader.getController();
-
+            SaveSceneController savePaneController = fxmlLoader.getController();
             Stage newStage = new Stage();
-
             savePaneController.setTextAreaBuffer(textArea.getText());
 
             newStage.setTitle("Save");
-
             newStage.setScene(new Scene(root, 400, 300));
+            newStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    public void handleToLoadScene(ActionEvent actionEvent) {
+        try {
+            String loadSceneViewName = "load-scene-view.fxml";
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(loadSceneViewName));
+            Parent root = fxmlLoader.load();
+
+            Stage newStage = new Stage();
+
+            newStage.setTitle("Load");
+            newStage.setScene(new Scene(root, 400, 300));
             newStage.show();
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -10,21 +9,20 @@
 <?import com.sun.javafx.scene.control.CustomColorDialog.ControlsPane?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="App.javawriter.SaveSceneController"
-            prefHeight="400.0" prefWidth="400.0">
+            fx:controller="App.javawriter.LoadSceneController"
+            prefHeight="200.0" prefWidth="200.0">
 
-    <top>
-
-    </top>
     <center>
         <HBox>
-            <TextField text="NewFile" fx:id="textFieldFileName"/>
-            <Button text="OK" fx:id="saveFile" onAction="#handleSaveText"/>
+            <TextField fx:id="loadPathFile"/>
+            <Button fx:id="confirmFile"  text="Submit" onAction="#handleConfirmedPath"/>
         </HBox>
-
     </center>
     <bottom>
-        <Button fx:id="closeScene" text="Back" onMouseClicked="#handleCloseWindow"/>
+        <HBox>
+            <Button fx:id="closeScene" text="Back" onMouseClicked="#handleCloseWindow"/>
+        </HBox>
     </bottom>
+
 
 </BorderPane>

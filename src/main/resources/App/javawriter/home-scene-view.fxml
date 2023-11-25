@@ -5,7 +5,7 @@
 
 <BorderPane
         xmlns:fx="http://javafx.com/fxml"
-        fx:controller="App.javawriter.HomePaneController"
+        fx:controller="App.javawriter.HomeSceneController"
         prefHeight="400.0" prefWidth="600.0">
 
     <top>
@@ -13,6 +13,7 @@
             <Button fx:id="changeToUppercase" text="Upper" onAction="#handletoUpperCase"/>
             <Button fx:id="changeToLowercase" text="Lower" onAction="#handleToLowerCase"/>
             <Button fx:id="changeToSaveScene" text="Save" onAction="#handleToSaveScene"/>
+            <Button fx:id="changeToLoadScene" text="Load" onAction="#handleToLoadScene"/>
             <ColorPicker fx:id="colorPicker" onAction="#handleColorPicker"/>
 
 

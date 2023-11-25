@@ -10,7 +10,6 @@ import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class HomeSceneController {
@@ -33,6 +32,9 @@ public class HomeSceneController {
     @FXML
     public Button changeToLoadScene;
 
+    public void setTextAreaContent(String text) {
+        textArea.setText(text);
+    }
 
     public void updateCounters() {
         textArea.textProperty().addListener((event) -> {
@@ -69,9 +71,9 @@ public class HomeSceneController {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("save-scene-view.fxml"));
             Parent root = fxmlLoader.load();
-            SaveSceneController savePaneController = fxmlLoader.getController();
+            SaveSceneController saveSceneController = fxmlLoader.getController();
             Stage newStage = new Stage();
-            savePaneController.setTextAreaBuffer(textArea.getText());
+            saveSceneController.setTextAreaBuffer(textArea.getText());
 
             newStage.setTitle("Save");
             newStage.setScene(new Scene(root, 400, 300));
@@ -86,12 +88,20 @@ public class HomeSceneController {
             String loadSceneViewName = "load-scene-view.fxml";
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(loadSceneViewName));
             Parent root = fxmlLoader.load();
+            LoadSceneController loadSceneController = fxmlLoader.getController();
 
             Stage newStage = new Stage();
-
             newStage.setTitle("Load");
             newStage.setScene(new Scene(root, 400, 300));
             newStage.show();
+
+            newStage.setOnCloseRequest(event -> {
+                //needs a revamp as setText uses just string.
+                String buffer = loadSceneController.getWords();
+                textArea.setText(buffer);
+                System.out.println("Buffer " + buffer);
+            });
+
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -14,7 +14,7 @@
 
     <center>
         <HBox>
-            <TextField fx:id="loadPathFile"/>
+            <TextField fx:id="loadPathFile" text="Add Path"/>
             <Button fx:id="confirmFile"  text="Submit" onAction="#handleConfirmedPath"/>
         </HBox>
     </center>

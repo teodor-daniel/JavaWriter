@@ -6,7 +6,9 @@ import javafx.scene.control.TextArea;
 public class TextAreaLogic {
 
     public TextAreaLogic() {}
-
+    public void appendToTextArea(String line, TextArea textArea) {
+        textArea.appendText(line + "\n");
+    }
     public void setToUpperCaseSelectedText(String selectedText, TextArea textArea) {
         String upperCaseText = selectedText.toUpperCase();
 

@@ -10,27 +10,28 @@ import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 
 public class HomeSceneController {
     private ColorPickerLogic colorPickerLogic = new ColorPickerLogic();
     private TextAreaLogic textAreaLogic = new TextAreaLogic();
     @FXML
-    public TextArea textArea;
+    private TextArea textArea;
     @FXML
-    public Label charactersCounter;
+    private Label charactersCounter;
     @FXML
-    public Label stringCounter;
+    private Label stringCounter;
     @FXML
-    public Button changeToUppercase;
+    private Button changeToUppercase;
     @FXML
-    public Button changeToLowercase;
+    private Button changeToLowercase;
     @FXML
-    public ColorPicker colorPicker;
+    private ColorPicker colorPicker;
     @FXML
-    public Button changeToSaveScene;
+    private Button changeToSaveScene;
     @FXML
-    public Button changeToLoadScene;
+    private Button changeToLoadScene;
 
     public void setTextAreaContent(String text) {
         textArea.setText(text);
@@ -95,17 +96,20 @@ public class HomeSceneController {
             newStage.setScene(new Scene(root, 400, 300));
             newStage.show();
 
-            newStage.setOnCloseRequest(event -> {
-                //needs a revamp as setText uses just string.
-                String buffer = loadSceneController.getWords();
-                textArea.setText(buffer);
-                System.out.println("Buffer " + buffer);
+            newStage.setOnHidden(event -> {
+                System.out.println("LoadScene is closed");
+
+                if (loadSceneController != null) {
+                    String buffer = loadSceneController.getWords();
+                    textArea.setText(buffer);
+                }
             });
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 }
 
 

@@ -14,11 +14,11 @@ import javafx.stage.Stage;
 public class SaveSceneController implements Closable {
 
     @FXML
-    public Button closeScene;
+    private Button closeScene;
     @FXML
-    public Button saveFile;
+    private Button saveFile;
     @FXML
-    public TextField textFieldFileName;
+    private TextField textFieldFileName;
     private String textAreaBuffer;
 
     private SaveLogic saveLogic = new SaveLogic();

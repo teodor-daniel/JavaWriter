@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 
 
 public class SaveSceneController implements Closable {
-
     @FXML
     private Button closeScene;
     @FXML
@@ -20,7 +19,6 @@ public class SaveSceneController implements Closable {
     @FXML
     private TextField textFieldFileName;
     private String textAreaBuffer;
-
     private SaveLogic saveLogic = new SaveLogic();
 
     public String getTextAreaBuffer() {
@@ -36,7 +34,6 @@ public class SaveSceneController implements Closable {
         final Node source = (Node) mouseEvent.getSource();
         final Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
-
     }
 
     public void handleSaveText(ActionEvent actionEvent) {
@@ -44,6 +41,5 @@ public class SaveSceneController implements Closable {
         final Node source = (Node) actionEvent.getSource();
         final Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
-
     }
 }

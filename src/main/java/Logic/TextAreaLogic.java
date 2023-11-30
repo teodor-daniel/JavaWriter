@@ -44,7 +44,7 @@ public class TextAreaLogic {
     public String returnCharactersCount(String text) {
         int count = 0;
         for (char c : text.toCharArray()) {
-            if (c != ' ') {
+            if (c != ' ' && c != '\n') {
                 count++;
             }
         }

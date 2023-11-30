@@ -1,5 +1,4 @@
 package App.javawriter;
-
 import Logic.ColorPickerLogic;
 import Logic.TextAreaLogic;
 import javafx.fxml.FXML;
@@ -10,7 +9,6 @@ import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class HomeSceneController {
@@ -33,12 +31,14 @@ public class HomeSceneController {
     @FXML
     private Button changeToLoadScene;
 
+
     public void setTextAreaContent(String text) {
         textArea.setText(text);
     }
 
     public void updateCounters() {
         textArea.textProperty().addListener((event) -> {
+            textArea.setWrapText(true);
             charactersCounter.setText("Characters: " + textAreaLogic.returnCharactersCount(textArea.getText()));
             stringCounter.setText("Words: " + textAreaLogic.returnWordsCount(textArea.getText()));
             textAreaLogic.setDefaultLabelText(textArea, stringCounter, charactersCounter);
@@ -68,7 +68,7 @@ public class HomeSceneController {
 
 
     public void handleToSaveScene(ActionEvent actionEvent) {
-        //to do create scene hanlder class.
+
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("save-scene-view.fxml"));
             Parent root = fxmlLoader.load();
@@ -77,7 +77,7 @@ public class HomeSceneController {
             saveSceneController.setTextAreaBuffer(textArea.getText());
 
             newStage.setTitle("Save");
-            newStage.setScene(new Scene(root, 400, 300));
+            newStage.setScene(new Scene(root, 200, 200));
             newStage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -93,7 +93,7 @@ public class HomeSceneController {
 
             Stage newStage = new Stage();
             newStage.setTitle("Load");
-            newStage.setScene(new Scene(root, 400, 300));
+            newStage.setScene(new Scene(root, 350, 50));
             newStage.show();
 
             newStage.setOnHidden(event -> {

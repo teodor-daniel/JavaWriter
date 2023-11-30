@@ -1,0 +1,31 @@
+.border-pane {
+    -fx-background-color: #2a2a2a;
+}
+
+.text-area {
+    -fx-font-family: "Courier New", Courier, monospace;
+    -fx-font-size: 16px;
+    -fx-text-fill: #ffffff;
+    -fx-control-inner-background: #1e1e1e;
+    -fx-highlight-fill: #ff6347;
+}
+
+
+.button {
+    -fx-font-family: "Arial", sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-color: #4caf50;
+    -fx-text-fill: white;
+    -fx-border-color: #388e3c;
+}
+
+
+.label {
+    -fx-font-family: "Arial", sans-serif;
+    -fx-font-size: 14px;
+    -fx-text-fill: #008000;
+}
+.scroll-pane {
+    -fx-hbar-policy: never;
+    -fx-vbar-policy: never;
+}

@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
 <BorderPane
         xmlns:fx="http://javafx.com/fxml"
         fx:controller="App.javawriter.HomeSceneController"
-        prefHeight="400.0" prefWidth="600.0">
+        prefHeight="400.0" prefWidth="600.0"
+        stylesheets="@../../Css/styles.css">
 
     <top>
         <HBox spacing="10">
+            <padding>
+                <Insets top="10" left="10" right="10" bottom="10"/>
+            </padding>
+
             <Button fx:id="changeToUppercase" text="Upper" onAction="#handletoUpperCase"/>
             <Button fx:id="changeToLowercase" text="Lower" onAction="#handleToLowerCase"/>
             <Button fx:id="changeToSaveScene" text="Save" onAction="#handleToSaveScene"/>
@@ -23,12 +28,21 @@
 
     <center>
         <HBox spacing="10">
+            <padding>
+                <Insets top="10" left="10" right="10" bottom="10"/>
+            </padding>
+
             <TextArea fx:id="textArea" onKeyTyped="#updateCounters"/>
         </HBox>
     </center>
 
     <bottom>
+
         <HBox spacing="10">
+            <padding>
+                <Insets left="10" right="10" bottom="10"/>
+            </padding>
+
             <Label fx:id="charactersCounter" text="Characters: 0"/>
             <Label fx:id="stringCounter" text="Words: 0"/>
 

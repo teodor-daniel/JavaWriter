@@ -1,28 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<?import com.sun.javafx.scene.control.CustomColorDialog.ControlsPane?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="App.javawriter.LoadSceneController"
-            prefHeight="200.0" prefWidth="200.0">
+            stylesheets="@../../Css/styles.css">
+
 
     <center>
-        <HBox>
-            <TextField fx:id="loadPathFile" text="pisi.txt"/>
-            <Button fx:id="confirmFile"  text="Submit" onAction="#handleConfirmedPath"/>
+        <HBox spacing="20">
+            <padding>
+                <Insets top="10" left="10" right="10" bottom="10"/>
+            </padding>
+            <Button fx:id="closeScene" text="Back" onMouseClicked="#handleCloseWindow"/>
+            <TextField fx:id="loadPathFile" text="Test.txt"/>
+            <Button fx:id="confirmFile" text="Load" onAction="#handleConfirmedPath"/>
         </HBox>
     </center>
-    <bottom>
-        <HBox>
-            <Button fx:id="closeScene" text="Back" onMouseClicked="#handleCloseWindow"/>
-        </HBox>
-    </bottom>
-
 
 </BorderPane>

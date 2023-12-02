@@ -11,11 +11,11 @@ public class SaveLogic {
     public void createFile(String textAreaBuffer, String textFieldFileName) {
         System.out.println(textAreaBuffer);
         try {
-            File myTextFile = new File(textFieldFileName + ".txt");
+            File myTextFile = new File("src/main/resources/Saves/" + textFieldFileName + ".txt");
             if (myTextFile.createNewFile()) {
                 System.out.println("File created: " + myTextFile.getName());
                 try {
-                    FileWriter myWriter = new FileWriter(textFieldFileName + ".txt");
+                    FileWriter myWriter = new FileWriter("src/main/resources/Saves/"+textFieldFileName + ".txt");
                     myWriter.write(textAreaBuffer);
                     myWriter.close();
                     System.out.println("Successfully wrote to the file.");

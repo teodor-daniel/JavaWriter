@@ -33,7 +33,8 @@ public class LoadSceneController implements Closable {
 
     public void handleConfirmedPath(ActionEvent actionEvent) {
         if (!this.loadPathFile.getText().isEmpty()) {
-            String textLoadPathFile = this.loadPathFile.getText();
+            String textLoadPathFile = this.loadPathFile.getText();//get the path of the file, i could use the File Chooser but for now i just do this
+            textLoadPathFile = textLoadPathFile + ".txt"; //i only handle .txt
             try (FileReader loadedFile = new FileReader(textLoadPathFile)) {
                 BufferedReader bufferedReader = new BufferedReader(loadedFile);
                 String line;
@@ -42,7 +43,7 @@ public class LoadSceneController implements Closable {
                 }
 
                 Stage stage = (Stage) confirmFile.getScene().getWindow();
-                stage.hide();
+                stage.hide(); //if i were to be closing it i would not pass the loadLogic
             } catch (Exception e) {
                 e.printStackTrace();
             }

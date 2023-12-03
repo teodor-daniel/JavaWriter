@@ -20,7 +20,7 @@ public class SaveLogic {
                     myWriter.close();
                     System.out.println("Successfully wrote to the file.");
                 } catch (IOException e) {
-                    System.out.println("An error occurred when writting to file.");
+                    System.out.println("An error occurred when writing to file.");
                     e.printStackTrace();
                 }
             } else {

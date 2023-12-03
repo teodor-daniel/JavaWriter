@@ -15,7 +15,7 @@
                 <Insets top="10" left="10" right="10" bottom="10"/>
             </padding>
 
-            <Button fx:id="changeToUppercase" text="Upper" onAction="#handletoUpperCase"/>
+            <Button fx:id="changeToUppercase" text="Upper" onAction="#handleUpperCase"/>
             <Button fx:id="changeToLowercase" text="Lower" onAction="#handleToLowerCase"/>
             <Button fx:id="changeToSaveScene" text="Save" onAction="#handleToSaveScene"/>
             <Button fx:id="changeToLoadScene" text="Load" onAction="#handleToLoadScene"/>
@@ -44,7 +44,7 @@
 
             <Label fx:id="charactersCounter" text="Characters: 0"/>
             <Label fx:id="stringCounter" text="Words: 0"/>
-            <CheckBox fx:id="autoCompletSate" text="Auto Complete" onAction="#enableAutoComplete"/>
+            <CheckBox fx:id="autoCompleteSate" text="Auto Complete" onAction="#enableAutoComplete"/>
 
         </HBox>
 

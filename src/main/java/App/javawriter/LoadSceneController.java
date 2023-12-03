@@ -33,7 +33,7 @@ public class LoadSceneController implements Closable {
 
     public void handleConfirmedPath() {
         if (!this.loadPathFile.getText().isEmpty()) {
-            String textLoadPathFile = this.loadPathFile.getText();//get the path of the file, i could use the File Chooser but for now i just do this
+            String textLoadPathFile = this.loadPathFile.getText();//get the path of the file, i could use the File Chooser but for now I just do this
             textLoadPathFile = textLoadPathFile + ".txt"; //i only handle .txt
             try (FileReader loadedFile = new FileReader(textLoadPathFile)) {
                 BufferedReader bufferedReader = new BufferedReader(loadedFile);

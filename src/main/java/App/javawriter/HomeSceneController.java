@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class HomeSceneController {
-    public CheckBox autoCompletSate;
+    public CheckBox autoCompleteSate;
     private ColorPickerLogic colorPickerLogic = new ColorPickerLogic();
     private TextAreaLogic textAreaLogic = new TextAreaLogic();
     @FXML
@@ -47,10 +47,10 @@ public class HomeSceneController {
             textAreaLogic.setDefaultLabelText(textArea, stringCounter, charactersCounter);
         });
         textArea.setOnKeyPressed(event -> {
-            if (autoCompletSate.isSelected() && event.getCode() == KeyCode.CONTROL) {
+            if (autoCompleteSate.isSelected() && event.getCode() == KeyCode.CONTROL) {
                 int caretPosition = textArea.getCaretPosition();
-                //right now it just sets it to upercase I did this to test if I can select the
-                //word that i am currently on using the caret, and it works
+                //right now it just sets it to upper case I did this to test if I can select the
+                //word that O am currently on using the caret, and it works
                 int wordStart = findWordStart(caretPosition);
                 int wordEnd = findWordEnd(caretPosition);
 
@@ -85,7 +85,7 @@ public class HomeSceneController {
             return end;
         }
 
-    public void handletoUpperCase() {
+    public void handleUpperCase() {
         String selectedText = textArea.getSelectedText();
         if (selectedText != null && !selectedText.isEmpty()) {
             textAreaLogic.setToUpperCaseSelectedText(selectedText, textArea);
@@ -153,7 +153,7 @@ public class HomeSceneController {
     }
 
     public void enableAutoComplete() {
-        if(autoCompletSate.isSelected()){
+        if(autoCompleteSate.isSelected()){
             System.out.println("You checked me");
         }
     }

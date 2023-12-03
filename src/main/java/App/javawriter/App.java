@@ -5,12 +5,11 @@ import Logic.FileLogic;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.Collectors;
+
 
 public class App extends Application {
     @Override
@@ -18,6 +17,8 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("home-scene-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 425, 600);
         stage.setTitle("JavaWriter");
+        stage.getIcons().add(new Image("file:src/main/resources/Images/icon.png"));
+
         stage.setScene(scene);
         stage.show();
     }

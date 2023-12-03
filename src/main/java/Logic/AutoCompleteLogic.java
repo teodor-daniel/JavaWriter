@@ -10,7 +10,7 @@ public class AutoCompleteLogic {
                 return  word;
             }
         }
-        return ""; // handle exception
+        return null; // handle exception
     }
 
 }

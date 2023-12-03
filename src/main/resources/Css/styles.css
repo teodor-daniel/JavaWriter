@@ -29,3 +29,10 @@
     -fx-hbar-policy: never;
     -fx-vbar-policy: never;
 }
+.check-box{
+    -fx-font-family: "Arial", sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-color: #4caf50;
+    -fx-text-fill: white;
+    -fx-border-color: #388e3c;
+}

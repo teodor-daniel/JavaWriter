@@ -2,6 +2,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.geometry.Insets?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="App.javawriter.SaveSceneController"
@@ -9,18 +10,16 @@
             stylesheets="@../../Css/styles.css">
 
 
-    <top>
 
-    </top>
     <center>
-        <HBox>
+        <HBox spacing="20">
+            <padding>
+            <Insets top="10" left="10" right="10" bottom="10"/>
+            </padding>
+            <Button fx:id="closeScene" text="Back" onMouseClicked="#handleCloseWindow"/>
             <TextField text="NewFile" fx:id="textFieldFileName"/>
-            <Button text="OK" fx:id="saveFile" onAction="#handleSaveText"/>
+            <Button text="Save" fx:id="saveFile" onAction="#handleSaveText"/>
         </HBox>
 
     </center>
-    <bottom>
-        <Button fx:id="closeScene" text="Back" onMouseClicked="#handleCloseWindow"/>
-    </bottom>
-
 </BorderPane>

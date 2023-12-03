@@ -31,7 +31,7 @@ public class LoadSceneController implements Closable {
         stage.close();
     }
 
-    public void handleConfirmedPath(ActionEvent actionEvent) {
+    public void handleConfirmedPath() {
         if (!this.loadPathFile.getText().isEmpty()) {
             String textLoadPathFile = this.loadPathFile.getText();//get the path of the file, i could use the File Chooser but for now i just do this
             textLoadPathFile = textLoadPathFile + ".txt"; //i only handle .txt

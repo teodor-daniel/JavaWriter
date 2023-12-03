@@ -21,7 +21,6 @@
             <Button fx:id="changeToLoadScene" text="Load" onAction="#handleToLoadScene"/>
             <ColorPicker fx:id="colorPicker" onAction="#handleColorPicker"/>
 
-
         </HBox>
 
     </top>
@@ -32,7 +31,7 @@
                 <Insets top="10" left="10" right="10" bottom="10"/>
             </padding>
 
-            <TextArea fx:id="textArea" onKeyTyped="#updateCounters"/>
+            <TextArea fx:id="textArea" onKeyTyped="#updateText"/>
         </HBox>
     </center>
 
@@ -45,6 +44,7 @@
 
             <Label fx:id="charactersCounter" text="Characters: 0"/>
             <Label fx:id="stringCounter" text="Words: 0"/>
+            <CheckBox fx:id="autoCompletSate" text="Auto Complete" onAction="#enableAutoComplete"/>
 
         </HBox>
 

@@ -23,13 +23,7 @@ public class App extends Application {
         stage.show();
     }
     public static void main(String[] args) {
-        FileLogic myFile = new FileLogic("pisi.txt");
-        AutoCompleteLogic autoCompleteLogic = new AutoCompleteLogic();
-        myFile.sortWordsInFile();
-        List<String> words = myFile.loadWordsFromFile();
-        String inputWord = "do"; // autocomplete the word do -> doom -> door.
-        inputWord = autoCompleteLogic.autocomplete(words, inputWord);
-        System.out.println(inputWord);
+        //FileLogic sortFile = new FileLogic("sobi.txt");
         launch();
     }
 

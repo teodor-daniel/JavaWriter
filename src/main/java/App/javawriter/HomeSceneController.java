@@ -1,5 +1,7 @@
 package App.javawriter;
+import Logic.AutoCompleteLogic;
 import Logic.ColorPickerLogic;
+import Logic.FileLogic;
 import Logic.TextAreaLogic;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +14,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.List;
 
 public class HomeSceneController {
     public CheckBox autoCompleteSate;
@@ -33,7 +36,7 @@ public class HomeSceneController {
     private Button changeToSaveScene;
     @FXML
     private Button changeToLoadScene;
-
+    private boolean wasSorted = false;
 
     public void setTextAreaContent(String text) {
         textArea.setText(text);
@@ -47,20 +50,29 @@ public class HomeSceneController {
             textAreaLogic.setDefaultLabelText(textArea, stringCounter, charactersCounter);
         });
         textArea.setOnKeyPressed(event -> {
+
             if (autoCompleteSate.isSelected() && event.getCode() == KeyCode.CONTROL) {
                 int caretPosition = textArea.getCaretPosition();
-                //right now it just sets it to upper case I did this to test if I can select the
-                //word that O am currently on using the caret, and it works
                 int wordStart = findWordStart(caretPosition);
                 int wordEnd = findWordEnd(caretPosition);
 
-                String currentWord = textArea.getText(wordStart, wordEnd);
+                String input = textArea.getText(wordStart, wordEnd);
+                FileLogic myFile = new FileLogic("DictionarySorted.txt");
 
-                String upperCaseWord = currentWord.toUpperCase();
+                AutoCompleteLogic autoCompleteLogic = new AutoCompleteLogic();
+                List<String> words = null;
 
-                textArea.replaceText(wordStart, wordEnd, upperCaseWord);
+                words = myFile.loadWordsFromFile();
 
-                textArea.positionCaret(wordStart + upperCaseWord.length());
+
+
+                String autocompletedWord = autoCompleteLogic.autocomplete(words, input);
+                if(!autocompletedWord.isEmpty()){
+                    textArea.replaceText(wordStart, wordEnd, autocompletedWord);
+                    textArea.positionCaret(wordStart + autocompletedWord.length());
+                }
+
+
             }
         });
     }

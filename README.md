@@ -14,4 +14,5 @@ The primary goal of the JavaWriter project is to create a user-friendly text edi
 ## Usage
 1. Download the latest release or clone the repository.
 2. Run the JavaWriter application.
-
+## 📹 Video:
+- [Video Presentation](https://youtu.be/3XsU8NZqA6w)

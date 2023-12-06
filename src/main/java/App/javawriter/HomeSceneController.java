@@ -14,6 +14,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomeSceneController {
@@ -36,11 +37,18 @@ public class HomeSceneController {
     private Button changeToSaveScene;
     @FXML
     private Button changeToLoadScene;
-    private boolean wasSorted = false;
 
+    private  List<String> words;
+
+    public HomeSceneController(){
+        this.words = new ArrayList<>();
+        FileLogic myFile = new FileLogic("DictionarySorted.txt");
+        words = myFile.loadWordsFromFile();
+    }
     public void setTextAreaContent(String text) {
         textArea.setText(text);
     }
+
 
     public void updateText() {
         textArea.textProperty().addListener((event) -> {
@@ -57,15 +65,8 @@ public class HomeSceneController {
                 int wordEnd = findWordEnd(caretPosition);
 
                 String input = textArea.getText(wordStart, wordEnd);
-                FileLogic myFile = new FileLogic("DictionarySorted.txt");
 
                 AutoCompleteLogic autoCompleteLogic = new AutoCompleteLogic();
-                List<String> words = null;
-
-                words = myFile.loadWordsFromFile();
-
-
-
                 String autocompletedWord = autoCompleteLogic.autocomplete(words, input);
                 if(!autocompletedWord.isEmpty()){
                     textArea.replaceText(wordStart, wordEnd, autocompletedWord);

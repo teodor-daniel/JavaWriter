@@ -23,7 +23,8 @@ public class App extends Application {
         stage.show();
     }
     public static void main(String[] args) {
-        //FileLogic sortFile = new FileLogic("sobi.txt");
+        FileLogic sortFile = new FileLogic("Dictionary.txt");
+        sortFile.sortWordsInFile();
         launch();
     }
 

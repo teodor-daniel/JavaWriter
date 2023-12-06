@@ -33,20 +33,18 @@ public class FileLogic {
             System.out.println("Words sorted and saved to: " + this.sortedFile);
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
-            System.out.println("Aici a crapat");
+            System.out.println("Here it broke");
         }
     }
 
 
     public List<String> loadWordsFromFile() { //here I get all the words from a file that is sorted and put them in an arrayList
         List<String> words = new ArrayList<>();
-        System.out.println(this.fileName + "This is the path");
         try (Scanner scanner = new Scanner(Paths.get( "src/main/resources/Text/" + this.fileName))) {
             while (scanner.hasNextLine()) {
                 String word = scanner.nextLine().trim();
                 words.add(word);
             }
-            System.out.println(words);
         } catch (Exception e) {
 
             System.out.println("Error: " + e.getMessage());
